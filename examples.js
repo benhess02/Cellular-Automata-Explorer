@@ -16,8 +16,10 @@ Examples.prototype.addExample = function(name){
     var item = document.createElement("button");
     item.innerText = name;
     item.onclick = function(ev){
-        _this.editorBox.value = _this.exampleCode[name];
-        _this.loadBtn.disabled = false;
+        if(_this.editorBox.value != _this.exampleCode[name]){
+            _this.editorBox.value = _this.exampleCode[name];
+            _this.loadBtn.disabled = false;
+        }
     };
     this.examplesList.appendChild(item);
 };
