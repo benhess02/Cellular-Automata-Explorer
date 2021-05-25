@@ -109,6 +109,7 @@ function Automata(){
         _this.loadBtn.disabled = false;
     });
 
+    _this.load();
     this.render();
 }
 
