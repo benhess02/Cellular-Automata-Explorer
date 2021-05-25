@@ -25,6 +25,7 @@ function Automata(){
 
     this.cameraX = this.gridWidth / 2;
     this.cameraY = this.gridHeight / 2;
+    this.zoom = 0;
 
     this.isDragging = false;
     this.isPainting = false;
@@ -72,6 +73,11 @@ function Automata(){
     this.cvs.oncontextmenu = function(ev){
         ev.preventDefault();
     };
+
+    this.cvs.addEventListener("wheel", function(ev){
+        _this.zoom -= ev.deltaY / 1000;
+        _this.gridCellSize = Math.pow(2, _this.zoom) * 10;
+    });
 
     this.cvs.addEventListener("mousemove", function(ev){
         _this.mouseX = ev.clientX;
